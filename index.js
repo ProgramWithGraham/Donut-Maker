@@ -1,16 +1,31 @@
-const container = (document.querySelector(".container").innerText =
-  "mmmmmmmmm doughnuts.... ahhhhhhh!");
+document.addEventListener("DOMContentLoaded", function () {
+  const developerLink = document.getElementById("developer-dropdown");
+  const developerModal = document.getElementById("developer-modal");
+  const companyInfoLink = document.getElementById("company-info-link");
+  const companyInfoModal = document.getElementById("company-info-modal");
 
-document.getElementsByTagName("button")[0].onclick = function () {
-  confirm(
-    "Welcome to Fred: the Baker Company. We make nothing, but donuts. " +
-      "Yummy delicious donuts with a click of a button. The more you click, the more donuts that are made. " +
-      "Once you have reached a required amount of donuts, you can spend those donuts to buy a AutoClicker. " +
-      "Watch as the AutoClicker auto mates your donut making by 1 donut per second, the more AutoClicker you buy the more donuts per second you will make. " +
-      "Happy Donut making!!"
-  );
-};
+  developerLink.addEventListener("click", function () {
+    developerModal.style.display = "block";
+  });
+
+  companyInfoLink.addEventListener("click", function () {
+    companyInfoModal.style.display = "block";
+  });
+
+  // Close modals when clicking outside of them
+  window.addEventListener("click", function (event) {
+    if (event.target === developerModal) {
+      developerModal.style.display = "none";
+    }
+    if (event.target === companyInfoModal) {
+      companyInfoModal.style.display = "none";
+    }
+  });
+});
 
 for (let i = 0; i < 1000; i++) {
   document.querySelector("#donuts").click();
 }
+
+const container = (document.querySelector(".container").innerText =
+  "mmmmmmmmm doughnuts.... ahhhhhhh!");

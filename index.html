@@ -9,20 +9,64 @@
   </head>
   <body>
     <div class="container"></div>
-    <nav class="zone">
-      <ul class="main-nav">
+    <nav class="header-nav">
+      <ul>
         <li>
-          <button class="button grey">About Company</button>
-          <a href="#inspiration" class="button grey"
-            >Inspiration:Cookie Clicker</a
-          ><a href="#contact" class="button grey">Contact</a>
+          <div class="header-link" id="company-info-link">
+            About the Company
+          </div>
+        </li>
+        <li>
+          <a
+            href="https://orteil.dashnet.org/cookieclicker/"
+            target="_blank"
+            class="header-link"
+            >Inspiration: Cookie Clicker</a
+          >
+        </li>
+        <li>
+          <div class="header-link dropdown-link" id="developer-dropdown">
+            The Developer
+          </div>
         </li>
       </ul>
     </nav>
-    <button3>Click to make a donut</button3>
-    <button2>Click to make a donut</button2>
-
-    <script src="index.js"></script>
+    <div class="modal" id="company-info-modal">
+      <div class="modal-content">
+        <h2>Company's Information</h2>
+        <p>
+          Welcome to Fred: the Baker Company. We make nothing, but donuts. Yummy
+          delicious donuts with a click of a button. The more you click, the
+          more donuts that are made. Once you have reached a required amount of
+          donuts, you can spend those donuts to buy a AutoClicker. Watch as the
+          AutoClicker auto mates your donut making by 1 donut per second, the
+          more AutoClicker you buy the more donuts per second you will make.
+          Happy Donut making!!"
+        </p>
+      </div>
+    </div>
+    <div class="modal" id="developer-modal">
+      <div class="modal-content">
+        <h2>About the Developer</h2>
+        <p>Howdy! My name is Adrian Graham.</p>
+        <p>For more information, visit:</p>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/ProgramWithGraham/ProgramWithGraham.github.io"
+              target="_blank"
+              >Portfolio</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/ProgramWithGraham" target="_blank"
+              >GitHub</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="./index.js"></script>
   </body>
 </html>
 
