@@ -1,4 +1,6 @@
 let counter = 0;
+let speed = 0;
+let speeds = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   const developerLink = document.getElementById("developer-dropdown");
@@ -7,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const companyInfoModal = document.getElementById("company-info-modal");
   let donutCount = document.getElementById("donut-count");
   let donutButton = document.getElementById("donut-button");
+  let autoCount = document.getElementById("auto-count");
+  let autoButton = document.getElementById("auto-button");
+  let resetButton = document.getElementById("reset-button");
 
   developerLink.addEventListener("click", function () {
     developerModal.style.display = "block";
@@ -18,6 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
   donutButton.addEventListener("click", function () {
     counter++;
     donutCount.innerHTML = counter;
+  });
+  autoButton.addEventListener("click", function () {
+    for (let i = 0; i < 10; i++) {
+      document.querySelector("donut-count").click();
+      autoCount.innerHTML = i;
+    }
+  });
+
+  resetButton.addEventListener("click", function () {
+    donutCount.innerText = "0";
+    autoCount.innerText = "0";
   });
 
   // Close modals when clicking outside of them
@@ -32,22 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function countUp() {
-  const bigHeader = document.getElementById("donut-count");
-
-  console.log(bigHeader, typeof bigHeader, "bigHeader");
-
-  bigHeader.innerText = counter;
+  speed++;
+  autoCount.innerText = speed;
 }
-
 setInterval(countUp, 100);
-
-// let button = document.getElementById("donut-button");
-// let countDisplay = document.getElementById("donut-count");
-// button.addEventListener("click", function () {
-//   counter++;
-//   countDisplay.innerHTML = counter;
-// });
-
-for (let i = 0; i < 1000; i++) {
-  document.querySelector("cookie-header").click();
-}
