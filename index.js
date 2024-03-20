@@ -4,6 +4,7 @@ let autoCount = 0;
 let autoClickerPrice = 2;
 let autoClickerNumber = 0;
 let speed = 0;
+let interval;
 
 document.addEventListener("DOMContentLoaded", function () {
   const developerLink = document.getElementById("developer-dropdown");
@@ -34,24 +35,22 @@ document.addEventListener("DOMContentLoaded", function () {
       counter = autoClickerNumber * 1.1;
       autoClickerNumber++;
       autoCount.innerText = autoClickerNumber;
-      setInterval(function () {
-        counter++;
-        donutCount.innerText = counter;
-      }, 1000);
+      if (autoClickerNumber > 0) {
+        interval = setInterval(countUp, 1000);
+        function countUp() {
+          counter++;
+          donutCount.innerText = counter;
+        }
+      }
     }
-
-    // autoCount.buyAutoClicker();
-    // for (let i = 0; i < 10; i++) {
-    //   autoCount.innerHTML = i;
-    // }
   });
 
   resetButton.addEventListener("click", function () {
     counter = 0;
     autoClickerNumber = 0;
-
     donutCount.innerText = "0";
     autoCount.innerText = "0";
+    callClearinterval();
   });
 
   // Close modals when clicking outside of them
@@ -65,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function countUp() {
-  counter++;
-  donutCount.innerText = counter;
+function callClearinterval() {
+  clearInterval(interval);
 }
