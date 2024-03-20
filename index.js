@@ -1,8 +1,8 @@
 let counter = 0;
-let speed = 0;
-let autoClickerPrice = 10;
+let autoClickerPrice = 2;
 let autoClickerNumber = 0;
-let donutCount = 1;
+let speed = 0;
+let interval;
 
 document.addEventListener("DOMContentLoaded", function () {
   const developerLink = document.getElementById("developer-dropdown");
@@ -27,27 +27,28 @@ document.addEventListener("DOMContentLoaded", function () {
     donutCount.innerText = counter;
   });
   autoButton.addEventListener("click", function () {
-    if (donutCount >= autoClickerPrice) {
-      donutCount -= autoClickerPrice;
+    if (counter >= autoClickerPrice) {
+      counter = counter -= autoClickerPrice;
+      donutCount.innerText = counter;
+      counter = autoClickerNumber * 2;
       autoClickerNumber++;
       autoCount.innerText = autoClickerNumber;
-      autoClickerPrice * 1.1;
+      if (autoClickerNumber > 0) {
+        interval = setInterval(countUp, 1000);
+        function countUp() {
+          donutCount.innerText = counter;
+          counter++;
+        }
+      }
     }
-
-    // for (autoCount = 0; donutCount >= autoClickerPrice; autoCount++) {
-    //   donutCount -= autoClickerPrice;
-    //   autoClickerPrice * 1.1;
-    // }
-
-    // autoCount.buyAutoClicker();
-    // for (let i = 0; i < 10; i++) {
-    //   autoCount.innerHTML = i;
-    // }
   });
 
   resetButton.addEventListener("click", function () {
+    counter = 0;
+    autoClickerNumber = 0;
     donutCount.innerText = "0";
     autoCount.innerText = "0";
+    callClearinterval();
   });
 
   // Close modals when clicking outside of them
@@ -61,15 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// function buyAutoClicker() {
-//   for (autoCount = 0; donutCount >= autoCount; autoCount++) {
-//     donutCount -= autoClickerPrice;
-//     autoCount.innerText = autoCount;
-//     autoClickerPrice *= 1.1;
-//   }
-// }
-// function countUp() {
-//   speed++;
-//   autoCount.innerText = speed;
-// }
-// setInterval(countUp, 100);
+function callClearinterval() {
+  clearInterval(interval);
+}
