@@ -1,6 +1,4 @@
 let counter = 0;
-let donutCount = 0;
-let autoCount = 0;
 let autoClickerPrice = 2;
 let autoClickerNumber = 0;
 let speed = 0;
@@ -32,14 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (counter >= autoClickerPrice) {
       counter = counter -= autoClickerPrice;
       donutCount.innerText = counter;
-      counter = autoClickerNumber * 1.1;
+      counter = autoClickerNumber * 2;
       autoClickerNumber++;
       autoCount.innerText = autoClickerNumber;
       if (autoClickerNumber > 0) {
         interval = setInterval(countUp, 1000);
         function countUp() {
-          counter++;
           donutCount.innerText = counter;
+          counter++;
         }
       }
     }
