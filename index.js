@@ -1,6 +1,8 @@
 let counter = 0;
 let speed = 0;
 let autoClickerPrice = 10;
+let autoClickerNumber = 0;
+let donutCount = 1;
 
 document.addEventListener("DOMContentLoaded", function () {
   const developerLink = document.getElementById("developer-dropdown");
@@ -22,14 +24,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   donutButton.addEventListener("click", function () {
     counter++;
-    donutCount.innerHTML = counter;
+    donutCount.innerText = counter;
   });
   autoButton.addEventListener("click", function () {
-    for (autoCount = 0; donutCount >= autoClickerPrice; autoCount++) {
+    if (donutCount >= autoClickerPrice) {
       donutCount -= autoClickerPrice;
-      autoCount.innerText = autoCount;
-      autoClickerPrice *= 1.1;
+      autoClickerNumber++;
+      autoCount.innerText = autoClickerNumber;
+      autoClickerPrice * 1.1;
     }
+
+    // for (autoCount = 0; donutCount >= autoClickerPrice; autoCount++) {
+    //   donutCount -= autoClickerPrice;
+    //   autoClickerPrice * 1.1;
+    // }
 
     // autoCount.buyAutoClicker();
     // for (let i = 0; i < 10; i++) {
