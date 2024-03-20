@@ -1,8 +1,7 @@
 let counter = 0;
 let speed = 0;
-let autoClickerPrice = 10;
+let autoClickerPrice = 2;
 let autoClickerNumber = 0;
-let donutCount = 1;
 
 document.addEventListener("DOMContentLoaded", function () {
   const developerLink = document.getElementById("developer-dropdown");
@@ -27,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     donutCount.innerText = counter;
   });
   autoButton.addEventListener("click", function () {
-    if (donutCount >= autoClickerPrice) {
+    if (donutCount <= autoClickerPrice) {
       donutCount -= autoClickerPrice;
       autoClickerNumber++;
       autoCount.innerText = autoClickerNumber;
