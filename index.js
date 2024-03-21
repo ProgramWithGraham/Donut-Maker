@@ -1,5 +1,5 @@
 let counter = 0;
-let autoClickerPrice = 2;
+let autoClickerPrice = 100;
 let autoClickerNumber = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
