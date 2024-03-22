@@ -1,5 +1,5 @@
 body {
-  background-image: url("/img/donuts.png");
+  background-image: url("/img/stackofdonuts.png");
   background-size: cover;
   height: 95vh;
   width: 99vw;
@@ -7,118 +7,124 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
 
-  .donut {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 30px;
-    font-size: 2.1rem;
-  }
-  button {
-    background-color: royalblue;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
-  .reset {
-    margin-top: 70px;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-  }
+section {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 2.1rem;
+}
 
-  /* Navigation styles */
-  .header-nav {
-    background-color: gray; /* gray background */
-    padding: 10px 20px; /* Added horizontal padding */
-    text-align: center; /* Center-align navigation items */
-  }
 
-  ul {
-    list-style-type: none;
-    margin: 0;
+button > img {
+  width: 80px;
+  border-radius: 100px;
+  background: none;
+}
+
+button {
+  background-color: rgba(38, 78, 197, 0.808);
+  border:#000;
+  color: white;
+  padding: 5px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+.reset {
+  margin-top: 70px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.reset > button {
+  background-color: hwb(303 0% 0% / 0.685);
+  cursor: pointer;
+}
+
+/* Navigation styles */
+.header-nav {
+  background-color: gray; /* gray background */
+  padding: 10px 20px; /* Added horizontal padding */
+  text-align: center; /* Center-align navigation items */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block; /* Display items side by side */
+  margin-right: 20px;
+}
+
+.header-link {
+  color: #000; /* Black text */
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px; /* Added padding */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.header-link:hover {
+  background-color: blue; /* Darker green on hover */
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds modal height */
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 80%; /* Increased modal width */
+  max-width: 600px;
+  margin: 20px auto; /* Center modal vertically and horizontally */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+.modal h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.modal p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+button:hover {
+  color: #333;
+}
+
+@media screen and (max-width: 500px) {
+  .header-nav,
+  .container {
+    font-size: 0.5em;
     padding: 0;
-  }
-
-  li {
-    display: inline-block; /* Display items side by side */
-    margin-right: 20px;
-  }
-
-  .header-link {
-    color: #000; /* Black text */
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 20px; /* Added padding */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
-  }
-
-  .header-link:hover {
-    background-color: blue; /* Darker green on hover */
-  }
-
-  /* Modal styles */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds modal height */
-  }
-
-  .modal-content {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    width: 80%; /* Increased modal width */
-    max-width: 600px;
-    margin: 20px auto; /* Center modal vertically and horizontally */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
-  }
-
-  .modal h2 {
-    color: #333;
-    margin-bottom: 10px;
-  }
-
-  .modal p {
-    color: #666;
-    margin-bottom: 15px;
-  }
-
-  /* Close button style */
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    color: blue;
-    font-size: 20px;
-  }
-
-  .close-button:hover {
-    color: #333;
-  }
-
-  @media screen and (max-width: 600px) {
-    .header-nav,
-    .container {
-      font-size: 0.5em;
-      padding: 0;
-      width: 100%;
-    }
   }
 }
