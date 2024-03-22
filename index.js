@@ -1,19 +1,12 @@
 let counter = 0;
-let autoClickerPrice = 2;
+let autoClickerPrice = 100;
 let autoClickerNumber = 0;
-let speed = 0;
-let interval;
 
 document.addEventListener("DOMContentLoaded", function () {
   const developerLink = document.getElementById("developer-dropdown");
   const developerModal = document.getElementById("developer-modal");
   const companyInfoLink = document.getElementById("company-info-link");
   const companyInfoModal = document.getElementById("company-info-modal");
-  let donutCount = document.getElementById("donut-count");
-  let donutButton = document.getElementById("donut-button");
-  let autoCount = document.getElementById("auto-count");
-  let autoButton = document.getElementById("auto-button");
-  let resetButton = document.getElementById("reset-button");
 
   developerLink.addEventListener("click", function () {
     developerModal.style.display = "block";
@@ -21,34 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   companyInfoLink.addEventListener("click", function () {
     companyInfoModal.style.display = "block";
-  });
-  donutButton.addEventListener("click", function () {
-    counter++;
-    donutCount.innerText = counter;
-  });
-  autoButton.addEventListener("click", function () {
-    if (counter >= autoClickerPrice) {
-      counter = counter -= autoClickerPrice;
-      donutCount.innerText = counter;
-      counter = autoClickerNumber * 2;
-      autoClickerNumber++;
-      autoCount.innerText = autoClickerNumber;
-      if (autoClickerNumber > 0) {
-        interval = setInterval(countUp, 1000);
-        function countUp() {
-          donutCount.innerText = counter;
-          counter++;
-        }
-      }
-    }
-  });
-
-  resetButton.addEventListener("click", function () {
-    counter = 0;
-    autoClickerNumber = 0;
-    donutCount.innerText = "0";
-    autoCount.innerText = "0";
-    callClearinterval();
   });
 
   // Close modals when clicking outside of them
@@ -62,6 +27,37 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function callClearinterval() {
-  clearInterval(interval);
+let donutCount = document.getElementById("donut-count");
+let donutButton = document.getElementById("donut-button");
+let autoCount = document.getElementById("auto-count");
+let autoButton = document.getElementById("auto-button");
+let resetButton = document.getElementById("reset-button");
+
+donutButton.addEventListener("click", function () {
+  counter++;
+  donutCount.innerText = counter;
+});
+
+autoButton.addEventListener("click", function () {
+  if (counter >= autoClickerPrice) {
+    counter -= autoClickerPrice;
+    donutCount.innerText = counter;
+    autoClickerNumber++;
+    autoCount.innerText = autoClickerNumber;
+  }
+});
+
+resetButton.addEventListener("click", function () {
+  counter = 0;
+  autoClickerNumber = 0;
+  donutCount.innerText = counter;
+  autoCount.innerText = autoClickerNumber;
+  callClearinterval();
+});
+
+function countUp() {
+  counter += autoClickerNumber;
+  donutCount.innerText = counter;
 }
+
+setInterval(countUp, 1000);
