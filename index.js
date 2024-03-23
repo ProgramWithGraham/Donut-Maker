@@ -52,7 +52,6 @@ resetButton.addEventListener("click", function () {
   autoClickerNumber = 0;
   donutCount.innerText = counter;
   autoCount.innerText = autoClickerNumber;
-  callClearinterval();
 });
 
 function countUp() {
